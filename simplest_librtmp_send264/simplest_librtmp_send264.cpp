@@ -1,14 +1,14 @@
 /**
  * Simplest Librtmp Send 264
  *
- * À×Ïöæè£¬ÕÅêÍ
+ * ï¿½ï¿½ï¿½ï¿½ï¿½è£¬ï¿½ï¿½ï¿½ï¿½
  * leixiaohua1020@126.com
  * zhanghuicuc@gmail.com
- * ÖÐ¹ú´«Ã½´óÑ§/Êý×ÖµçÊÓ¼¼Êõ
+ * ï¿½Ð¹ï¿½ï¿½ï¿½Ã½ï¿½ï¿½Ñ§/ï¿½ï¿½ï¿½Öµï¿½ï¿½Ó¼ï¿½ï¿½ï¿½
  * Communication University of China / Digital TV Technology
  * http://blog.csdn.net/leixiaohua1020
  *
- * ±¾³ÌÐòÓÃÓÚ½«ÄÚ´æÖÐµÄH.264Êý¾ÝÍÆËÍÖÁRTMPÁ÷Ã½Ìå·þÎñÆ÷¡£
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½ï¿½Ú´ï¿½ï¿½Ðµï¿½H.264ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½RTMPï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * This program can send local h264 stream to net server as rtmp live stream.
  */
 
@@ -19,7 +19,7 @@
 
 FILE *fp_send1;
 
-//¶ÁÎÄ¼þµÄ»Øµ÷º¯Êý
+//ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä»Øµï¿½ï¿½ï¿½ï¿½ï¿½
 //we use this callback function to read data from buffer
 int read_buffer1(unsigned char *buf, int buf_size ){
 	if(!feof(fp_send1)){
@@ -34,13 +34,14 @@ int main(int argc, char* argv[])
 {
 	fp_send1 = fopen("cuc_ieschool.h264", "rb");
 
-	//³õÊ¼»¯²¢Á¬½Óµ½·þÎñÆ÷
-	RTMP264_Connect("rtmp://localhost/publishlive/livestream");
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// RTMP264_Connect("rtmp://localhost/publishlive/livestream");
+	RTMP264_Connect("rtmp://localhost/live/myStream");
 	
-	//·¢ËÍ
+	//ï¿½ï¿½ï¿½ï¿½
 	RTMP264_Send(read_buffer1);
 
-	//¶Ï¿ªÁ¬½Ó²¢ÊÍ·ÅÏà¹Ø×ÊÔ´
+	//ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
 	RTMP264_Close();
 
 	return 0;
